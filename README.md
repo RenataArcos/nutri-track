@@ -21,13 +21,40 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+##NutriTrack
+
+API REST para registrar perfiles, alimentos y consumos diarios, calculando automáticamente metas nutricionales.
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+
+---
+
+## Stack técnico
+
+| Capa               | Tecnología | Versión (ejemplo) |
+|--------------------|------------|-------------------|
+| Runtime            | **Node.js** | ≥ 18 (probado con 20 LTS) |
+| Framework backend  | **NestJS** | 11.0.1 |
+| Base de datos      | **MongoDB**| ≥ 5 (probado con 6) |
+| ODM                | **Mongoose** | 8.16 |
+| Lenguaje           | **TypeScript** | 5.x |
+
+
+
+## Requisitos previos
+
+1. **Git** para clonar el repo.  
+2. **Node ≥ 18** y **npm** (o pnpm/yarn).  
+3. **MongoDB** mongosh y mongod.
+
 ## Project setup
 
 ```bash
+git clone https://github.com/RenataArcos/nutri-track.git
+cd nutri-track
 $ npm install
 ```
 
@@ -39,36 +66,21 @@ $ npm run start
 
 # watch mode
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
-## Run tests
+## Enviroment settings
 
+El proyecto apunta por defecto a mongodb://localhost/miapp.
+Si quieres cambiar la URI, crea un archivo .env en la raíz:
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+MONGODB_URI=mongodb://localhost/miapp
+PORT=3000
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+y modifica src/app.module.ts para leer la variable, por ejemplo:
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+MongooseModule.forRoot(process.env.MONGODB_URI);
 ```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
 ## Resources
 
@@ -89,7 +101,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
+- Credits - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
 - Website - [https://nestjs.com](https://nestjs.com/)
 - Twitter - [@nestframework](https://twitter.com/nestframework)
 
